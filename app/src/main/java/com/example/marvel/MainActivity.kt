@@ -2,48 +2,76 @@ package com.example.marvel
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.marvel.ui.theme.MarvelTheme
+import com.example.marvel.databinding.ActivitySecondBinding
+import com.example.marvel.presentation.adapters.MarvelAdapter
+import com.example.marvel.domain.entities.MarvelCardEntity
 
 
 class MainActivity : ComponentActivity() {
+    private lateinit var binding: ActivitySecondBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            MarvelTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
+        binding = ActivitySecondBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setupView()
+    }
+
+    private fun setupView() {
+        binding.miranha.adapter = MarvelAdapter(getModel())
+    }
+
+    private fun getModel(): List<MarvelCardEntity> {
+        return listOf(
+            MarvelCardEntity(
+                text = "Homen Aranha",
+                image = "https://br.web.img3.acsta.net/pictures/bzp/01/29007.jpg"
+            ),
+            MarvelCardEntity(
+                text = "Homen Aranha",
+                image = "https://br.web.img3.acsta.net/pictures/bzp/01/29007.jpg"
+            ),
+            MarvelCardEntity(
+                text = "Homen Aranha",
+                image = "https://br.web.img3.acsta.net/pictures/bzp/01/29007.jpg"
+            ),
+            MarvelCardEntity(
+                text = "Homen Aranha",
+                image = "https://br.web.img3.acsta.net/pictures/bzp/01/29007.jpg"
+            ),
+            MarvelCardEntity(
+                text = "Homen Aranha",
+                image = "https://br.web.img3.acsta.net/pictures/bzp/01/29007.jpg"
+            ),
+            MarvelCardEntity(
+                text = "Homen Aranha",
+                image = "https://br.web.img3.acsta.net/pictures/bzp/01/29007.jpg"
+            ),
+            MarvelCardEntity(
+                text = "Homen Aranha",
+                image = "https://br.web.img3.acsta.net/pictures/bzp/01/29007.jpg"
+            ),
+            MarvelCardEntity(
+                text = "Homen Aranha",
+                image = "https://br.web.img3.acsta.net/pictures/bzp/01/29007.jpg"
+            ),
+            MarvelCardEntity(
+                text = "Homen Aranha",
+                image = "https://br.web.img3.acsta.net/pictures/bzp/01/29007.jpg"
+            ),
+            MarvelCardEntity(
+                text = "Homen Aranha",
+                image = "https://br.web.img3.acsta.net/pictures/bzp/01/29007.jpg"
+            ),
+            MarvelCardEntity(
+                text = "Homen Aranha",
+                image = "https://br.web.img3.acsta.net/pictures/bzp/01/29007.jpg"
+            ),
+            MarvelCardEntity(
+                text = "Homen Aranha",
+                image = "https://br.web.img3.acsta.net/pictures/bzp/01/29007.jpg"
+            ),
+        )
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MarvelTheme {
-        Greeting("Android")
-    }
-}
